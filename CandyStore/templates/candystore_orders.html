@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>View Orders</title>
+    </head>
+    <body>
+        <a href="/">Main</a>
+        <table>
+            <tr>
+                <th>order id</th>
+                <th>qty</th>
+                <th>product id</th>
+            </tr>
+            {% for v in orders %}
+            <tr>
+                <td>{{v[0]}}</td>
+                <td>{{v[1]}}</td>
+                <td>{{v[2]}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </body>
+</html>
