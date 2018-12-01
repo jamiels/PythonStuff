@@ -24,11 +24,14 @@ insert into products
 values (1,'M&M'),(2,'KitKat'),(3,'Jelly Beans')
 
 '''
+@app.route('/logout')
+def logout():
+    return "Bye"
 
 @app.route('/viewOrders')
 def view_orders():
     connection = get_connection()
-    sql = "select * from orders"
+    sql = "select * from orders,products where orders.product_id = products.product_id"
     result = connection.cmd_query(sql)
     rows = connection.get_rows()
     connection.close()
@@ -49,7 +52,7 @@ def process_order():
 @app.route('/')
 def candystore_main():
     products = get_products()
-    return render_template('candystore_main.html',stuff=products,more_stuff=5)
+    return render_template('main.html',stuff=products,more_stuff=5)
 
 @app.route("/hello")
 def hello():

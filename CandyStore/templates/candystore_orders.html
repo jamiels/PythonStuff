@@ -4,17 +4,18 @@
     </head>
     <body>
         <a href="/">Main</a>
+        <a href="/viewOrders">View Orders</a>
         <table>
             <tr>
                 <th>order id</th>
                 <th>qty</th>
-                <th>product id</th>
+                <th>description</th>
             </tr>
             {% for v in orders %}
             <tr>
                 <td>{{v[0]}}</td>
                 <td>{{v[1]}}</td>
-                <td>{{v[2]}}</td>
+                <td>{{v[4]}}</td>
             </tr>
             {% endfor %}
         </table>
